@@ -1,0 +1,42 @@
+{
+    "name": "Opinion",
+    "fields": [
+        {
+            "fieldName": "score",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "opinion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "author",
+            "otherEntityName": "person",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "person"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "bottle",
+            "otherEntityName": "bottle",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "bottle"
+        }
+    ],
+    "changelogDate": "20190204154340",
+    "entityTableName": "opinion",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

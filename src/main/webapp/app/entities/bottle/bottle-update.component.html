@@ -1,0 +1,122 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-bottle-heading" jhiTranslate="trafalbarApp.bottle.home.createOrEditLabel">Create or edit a Bottle</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!bottle.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="bottle.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="trafalbarApp.bottle.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="bottle.name" required maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="trafalbarApp.bottle.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="bottle.description" maxlength="255"/>
+                    <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.description?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="trafalbarApp.bottle.age" for="field_age">Age</label>
+                    <input type="number" class="form-control" name="age" id="field_age"
+                        [(ngModel)]="bottle.age" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="trafalbarApp.bottle.degree" for="field_degree">Degree</label>
+                    <input type="number" class="form-control" name="degree" id="field_degree"
+                        [(ngModel)]="bottle.degree" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="trafalbarApp.bottle.picture" for="field_picture">Picture</label>
+                    <div>
+                        <div *ngIf="bottle.picture" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(bottle.pictureContentType, bottle.picture)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{bottle.pictureContentType}}, {{byteSize(bottle.picture)}}</span>
+                            <button type="button" (click)="bottle.picture=null;bottle.pictureContentType=null;"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_picture" (change)="setFileData($event, bottle, 'picture', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="picture" id="field_picture"
+                        [(ngModel)]="bottle.picture" />
+                    <input type="hidden" class="form-control" name="pictureContentType" id="field_pictureContentType"
+                        [(ngModel)]="bottle.pictureContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="trafalbarApp.bottle.origin" for="field_origin">Origin</label>
+                    <input type="text" class="form-control" name="origin" id="field_origin"
+                        [(ngModel)]="bottle.origin" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.origin?.dirty && editForm.controls.origin?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.origin?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="trafalbarApp.bottle.mouth" for="field_mouth">Mouth</label>
+                    <input type="text" class="form-control" name="mouth" id="field_mouth"
+                        [(ngModel)]="bottle.mouth" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.mouth?.dirty && editForm.controls.mouth?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.mouth?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="trafalbarApp.bottle.nose" for="field_nose">Nose</label>
+                    <input type="text" class="form-control" name="nose" id="field_nose"
+                        [(ngModel)]="bottle.nose" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.nose?.dirty && editForm.controls.nose?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nose?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="trafalbarApp.bottle.rawMaterial" for="field_rawMaterial">Raw Material</label>
+                    <input type="text" class="form-control" name="rawMaterial" id="field_rawMaterial"
+                        [(ngModel)]="bottle.rawMaterial" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.rawMaterial?.dirty && editForm.controls.rawMaterial?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.rawMaterial?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="person">
+            <h2><span jhiTranslate="trafalbarApp.person.detail.title">Person</span> {{person.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="trafalbarApp.person.city">City</span></dt>
+                <dd>
+                    <span>{{person.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.person.age">Age</span></dt>
+                <dd>
+                    <span>{{person.age}}</span>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.person.gender">Gender</span></dt>
+                <dd>
+                    <span>{{person.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.person.user">User</span></dt>
+                <dd>
+                    {{person.userId}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/person', person.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,6 @@
 entity Person {
-    lastName String required maxlength(100)
-    firstName String required maxlength(100)
-    email String required maxlength(255)
-    password String required maxlength(255)
-    passwordConfirm String required maxlength(255)
-    age Integer required
     city String maxlength(100)
+    age Integer required
     gender Boolean
 }
 

@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bottle">
+            <h2><span jhiTranslate="trafalbarApp.bottle.detail.title">Bottle</span> {{bottle.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="trafalbarApp.bottle.name">Name</span></dt>
+                <dd>
+                    <span>{{bottle.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.bottle.description">Description</span></dt>
+                <dd>
+                    <span>{{bottle.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.bottle.age">Age</span></dt>
+                <dd>
+                    <span>{{bottle.age}}</span>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.bottle.degree">Degree</span></dt>
+                <dd>
+                    <span>{{bottle.degree}}</span>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.bottle.picture">Picture</span></dt>
+                <dd>
+                    <div *ngIf="bottle.picture">
+                        <a (click)="openFile(bottle.pictureContentType, bottle.picture)" jhiTranslate="entity.action.open">open</a>
+                        {{bottle.pictureContentType}}, {{byteSize(bottle.picture)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.bottle.origin">Origin</span></dt>
+                <dd>
+                    <span>{{bottle.origin}}</span>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.bottle.mouth">Mouth</span></dt>
+                <dd>
+                    <span>{{bottle.mouth}}</span>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.bottle.nose">Nose</span></dt>
+                <dd>
+                    <span>{{bottle.nose}}</span>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.bottle.rawMaterial">Raw Material</span></dt>
+                <dd>
+                    <span>{{bottle.rawMaterial}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bottle', bottle.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="opinion">
+            <h2><span jhiTranslate="trafalbarApp.opinion.detail.title">Opinion</span> {{opinion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="trafalbarApp.opinion.score">Score</span></dt>
+                <dd>
+                    <span>{{opinion.score}}</span>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.opinion.opinion">Opinion</span></dt>
+                <dd>
+                    <span>{{opinion.opinion}}</span>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.opinion.author">Author</span></dt>
+                <dd>
+                    <div *ngIf="opinion.authorId">
+                        <a [routerLink]="['/person', opinion.authorId, 'view']">{{opinion.authorId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="trafalbarApp.opinion.bottle">Bottle</span></dt>
+                <dd>
+                    <div *ngIf="opinion.bottleId">
+                        <a [routerLink]="['/bottle', opinion.bottleId, 'view']">{{opinion.bottleId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/opinion', opinion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

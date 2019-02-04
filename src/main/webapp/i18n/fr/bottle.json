@@ -1,0 +1,30 @@
+{
+    "trafalbarApp": {
+        "bottle": {
+            "home": {
+                "title": "Bottles",
+                "createLabel": "Créer un nouveau Bottle",
+                "createOrEditLabel": "Créer ou éditer un Bottle"
+            },
+            "created": "Un nouveau Bottle a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Bottle avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Bottle avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Bottle {{ id }} ?"
+            },
+            "detail": {
+                "title": "Bottle"
+            },
+            "name": "Name",
+            "description": "Description",
+            "age": "Age",
+            "degree": "Degree",
+            "picture": "Picture",
+            "origin": "Origin",
+            "mouth": "Mouth",
+            "nose": "Nose",
+            "rawMaterial": "Raw Material",
+            "opinion": "Opinion"
+        }
+    }
+}
