@@ -1,0 +1,39 @@
+entity Person {
+    lastName String required maxlength(100)
+    firstName String required maxlength(100)
+    email String required maxlength(255)
+    password String required maxlength(255)
+    passwordConfirm String required maxlength(255)
+    age Integer required
+    city String maxlength(100)
+    gender Boolean
+}
+
+entity Bottle {
+    name String required maxlength(100)
+    description String maxlength(255)
+    age Integer 
+    degree Double
+    picture Blob
+    origin String maxlength(100)
+    mouth String maxlength(100)
+    nose String maxlength(100)
+    rawMaterial String maxlength(100)
+}
+
+entity Opinion {
+    score Integer
+    Opinion String maxlength(255)
+}
+
+relationship OneToMany {
+    Person to Opinion{author}
+    Bottle to Opinion{bottle}
+}
+
+relationship OneToOne {
+    Person{user} to User{person}
+}
+
+dto * with mapstruct
+service * with serviceClass

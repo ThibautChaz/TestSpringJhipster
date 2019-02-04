@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "Trafalbar",
+    "packageName": "com.trafalbar",
+    "packageFolder": "com/trafalbar",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.8.1",
+    "jwtSecretKey": "NWFhMzAzNWQ3Yzk2NjY1YzIxNjUzMTc2NjQ0YTAxZTE2MjNjMTc5NDIyNWFiODA2YmVhZWI3ZDVhMDYxOGM0YmI2OGUzN2IyMDAyMTlhNGJhNzBlZjc1ZjZlZmJlY2RhYzNjNWFmYWZjMWViYmY0MTI3MzRjYmE4OGM5NzEyMmU=",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": []
+  }
+}
